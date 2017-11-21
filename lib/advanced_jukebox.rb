@@ -35,6 +35,16 @@ def play(my_songs)
   #if it isn't, tell them their choice is invalid
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
+  puts "Please enter as song name or number:"
+  song = gets.chomp
+
+  if my_songs.keys.include?(song)
+    puts "Playing #{my_song}"
+  elsif song.to_i.between?(1,7)
+    puts "Playing #{my_songs.keys[song.to_i-1]}"
+  else
+    puts "Invalid input, please try again"
+  end
 
 end
 
