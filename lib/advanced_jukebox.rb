@@ -23,8 +23,7 @@ end
 
 
 def list(my_songs)
-  #this method is different! Collect the keys of the my_songs hash and
-  #list the songs by name
+  my_songs.keys.each.with_index { |song, idx| puts "#{idx+1}. #{song}" }
 end
 
 
@@ -43,7 +42,7 @@ def exit_jukebox
   puts "Goodbye"
 end
 
-def run(songs)
+def run(my_songs)
   help
   puts "Please enter a command:"
   command = gets.chomp
@@ -52,9 +51,9 @@ def run(songs)
     when "help"
       help
     when "list"
-      list(songs)
+      list(my_songs)
     when "play"
-      play(songs)
+      play(my_songs)
     end
     command = gets.chomp
   end
